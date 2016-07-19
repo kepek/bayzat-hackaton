@@ -1,0 +1,48 @@
+{{#app-page class="navbar-through toolbar-through" data-page="index"}}
+  <div class="page-content">
+    <div class="content-block-title">Welcome To Bayzat Hackaton App</div>
+    <div class="content-block">
+      <div class="content-block-inner">
+        <p>Join the <strong>bayzat</strong> competition and stay health! Reach minimum 8000 steps per day and <u>decrease</u> the price of your <a href="https://bayzat.com/health-insurance">Health Insurance</a>.</p>
+      </div>
+    </div>
+    <div class="content-block-title">History</div>
+    <div class="content-block">
+      <div class="row">
+        <div class="col-50">
+          {{#link-to "history" (query-params date=yesterdayDate) class="button open-panel disabled"}}
+            Yesterday
+          {{/link-to}}
+        </div>
+        <div class="col-50">
+          {{#link-to "history" (query-params date=todayDate) class="button open-panel"}}
+            Today
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+    <div class="content-block-title">Wants to know more?</div>
+    <div class="list-block">
+      <ul>
+        <li>
+          {{#link-to "about" class="item-link"}}
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">About</div>
+              </div>
+            </div>
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to "settings" class="item-link"}}
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">Settings</div>
+              </div>
+            </div>
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  </div>
+{{/app-page}}

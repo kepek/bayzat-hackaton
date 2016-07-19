@@ -1,0 +1,29 @@
+{{#app-navbar}}
+  About
+{{/app-navbar}}
+
+{{#app-page class="navbar-through toolbar-through" data-page="about"}}
+  <div class="page-content">
+    <div class="content-block-title">Authors</div>
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+          <a href="mailto:taras@bayzat.com">taras@bayzat.com</a>
+        </li>
+        <li class="item-content">
+            <a href="mailto:michal@bayzat.com">kepek@bayzat.com</a>
+        </li>
+        <li class="item-content">
+          <a href="mailto:kepek@bayzat.com">kepek@bayzat.com</a>
+        </li>
+      </ul>
+    </div>
+    <div class="content-block-title">Version</div>
+    <div class="list-block">
+      <ul>
+        <li class="item-content">0.0.1</li>
+      </ul>
+    </div>
+    {{outlet}}
+  </div>
+{{/app-page}}

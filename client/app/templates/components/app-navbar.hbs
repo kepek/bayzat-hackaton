@@ -1,0 +1,20 @@
+<div class="navbar-inner">
+  {{#if showBackButton}}
+    <div class="left">
+      {{#link-to 'index' class="back link"}}
+        <i class="icon icon-back"></i>
+        <span>Back</span>
+      {{/link-to}}
+    </div>
+  {{/if}}
+  <div class="center sliding">
+    {{yield}}
+  </div>
+  {{#if showMenuButton}}
+    <div class="right">
+      <div class="link icon-only open-panel">
+        <i class="icon icon-bars"></i>
+      </div>
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,45 @@
+{{partial "partials/header"}}
+
+<!-- Statusbar Overlay -->
+<div class="statusbar-overlay"></div>
+
+<!-- Panel Overlay -->
+<div class="panel-overlay"></div>
+
+<!-- Panel Left -->
+<div class="panel panel-left panel-reveal">
+  <div class="content-block">
+    <p>Left panel content goes here</p>
+  </div>
+</div>
+
+<!-- Panel Right -->
+<div class="panel panel-right panel-cover">
+  <div class="content-block">
+    <p>Right panel content goes here</p>
+  </div>
+</div>
+
+<!-- Views -->
+<div class="views">
+
+  <!-- Main View -->
+  <div class="view view-main">
+
+    <!-- Navbar -->
+    {{#app-navbar showBackButton=false showMenuButton=false}}
+      {{#link-to 'index'}}Bayzat Hackaton{{/link-to}}
+    {{/app-navbar}}
+
+    {{outlet}}
+
+    <!-- Toolbar -->
+    {{#app-toolbar}}
+      {{#link-to 'gyro'}}Start{{/link-to}}
+    {{/app-toolbar}}
+
+  </div>
+
+</div>
+
+{{partial "partials/footer"}}
