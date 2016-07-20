@@ -10,26 +10,30 @@ export default Ember.Component.extend({
 
   gyro: inject.service('gyro'),
 
-  init() {
-    this._super(...arguments);
-
+  initGyro: Ember.on('didInsertElement', function () {
     this.get('gyro').startTracking((measurements) => {
       this.set('measurements', measurements);
     });
-  },
+  }),
 
-  steps: computed('measurements', function () {
-    let m = this.get('measurements');
+  destroyGyro: Ember.on('willDestroyElement', function () {
+    this.get('gyro').stopTracking();
+  }),
+
+  steps: computed('measurements.{x,y,z}', 'gyro.gravity', function () {
     let steps = 0;
+    let m = this.get('measurements');
 
     if (m) {
-      let stepLength = Math.sqrt(m.x * m.x + m.y * m.y + m.z * m.z);
-
-      if(stepLength>= 2){
-       steps+=1;
-      }
+      steps = Math.sqrt(m.x * m.x + m.y * m.y + m.z * m.z);
     }
- 
+
     return steps;
-  })
+  }),
+
+  actions: {
+    stopTracking() {
+      this.get('gyro').stopTracking();
+    }
+  }
 });

@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+const {
+  computed
+} = Ember;
+
 export default Ember.Service.extend({
   measurements: {
     x: null,
@@ -21,7 +25,19 @@ export default Ember.Service.extend({
 
   interval: null,
   features: null,
-  frequency: 500, //ms
+  frequency: 500, // ms
+
+  direction: computed('measurements.alpha', function () {
+    return Math.round(this.get('measurements.alpha'));
+  }),
+
+  tiltFrontBack: computed('measurements.beta', function () {
+    return Math.round(this.get('measurements.beta'));
+  }),
+
+  tiltLeftRight: computed('measurements.gamma', function () {
+    return Math.round(this.get('measurements.gamma'));
+  }),
 
   init() {
     this._super(...arguments);
@@ -29,7 +45,7 @@ export default Ember.Service.extend({
     this.set('features', []);
 
     Ember.run.schedule('afterRender', this, function () {
-      if (window && window.addEventListener) {
+      if (window && window.addEventListener && window.DeviceMotionEvent) {
         window.addEventListener('MozOrientation', (e) => {
           this.get('features').push('MozOrientation');
           this.set('measurements.x', e.x - this.get('calibration.x'));
@@ -50,7 +66,6 @@ export default Ember.Service.extend({
           this.set('measurements.beta', e.beta - this.get('calibration.beta'));
           this.set('measurements.gamma', e.gamma - this.get('calibration.gamma'));
         }, true);
-
       }
     });
   },
