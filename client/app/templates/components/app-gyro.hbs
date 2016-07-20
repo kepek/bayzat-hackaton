@@ -1,5 +1,47 @@
-<div class="content-block-title">Gyro</div>
+<div class="content-block-title">Counter</div>
 <div class="content-block">
-  
-  {{yield}}
+  <span class="button button-big button-round active">{{steps}}</span>
 </div>
+<div class="content-block-title">Measurements</div>
+<div class="list-block">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">X</div>
+        <div class="item-after"><span class="badge">{{measurements.x}}</span></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">Y</div>
+        <div class="item-after"><span class="badge">{{measurements.y}}</span></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">Z</div>
+        <div class="item-after"><span class="badge">{{measurements.z}}</span></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">Alpha</div>
+        <div class="item-after"><span class="badge">{{measurements.alpha}}</span></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">Beta</div>
+        <div class="item-after"><span class="badge">{{measurements.beta}}</span></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">Gamma</div>
+        <div class="item-after"><span class="badge">{{measurements.gamma}}</span></div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+{{!-- <button type="button" class="button button-big button-fill button-gyro"></button> --}}

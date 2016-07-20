@@ -1,15 +1,35 @@
-/* global gyro */
-
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  initGyro: Ember.on('didInsertElement', function () {
-    Ember.assert('Gyroscope is not available', gyro);
+const {
+  computed,
+  inject
+} = Ember;
 
-    gyro.startTracking(function(o) {
-        // o.x, o.y, o.z for accelerometer
-        // o.alpha, o.beta, o.gamma for gyro
-        console.log('gyro', o);
+export default Ember.Component.extend({
+  measurements: null,
+
+  gyro: inject.service('gyro'),
+
+  init() {
+    this._super(...arguments);
+
+    this.get('gyro').startTracking((measurements) => {
+      this.set('measurements', measurements);
     });
+  },
+
+  steps: computed('measurements', function () {
+    let m = this.get('measurements');
+    let steps = 0;
+
+    if (m) {
+      let stepLength = Math.sqrt(m.x * m.x + m.y * m.y + m.z * m.z);
+
+      if(stepLength>= 2){
+       steps+=1;
+      }
+    }
+ 
+    return steps;
   })
 });
