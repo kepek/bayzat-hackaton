@@ -4,6 +4,8 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var env = EmberApp.env();
 var path = require('path');
 
+var THEME = 'ios'; // ['material', 'ios']
+
 // List of extensions for fingerprint
 var fingerprintExtensions = [
     'js', 'css', 'png', 'jpg', 'ico', 'gif', 'svg', 'map', 'mp4', 'ttf', 'pdf',
@@ -57,9 +59,8 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import(path.join(app.bowerDirectory, '/gyro.js/js/gyro.js'));
-  app.import(path.join(app.bowerDirectory, '/framework7/dist/css/framework7.ios.css'));
-  app.import(path.join(app.bowerDirectory, '/framework7/dist/css/framework7.ios.colors.css'));
+  app.import(path.join(app.bowerDirectory, '/framework7/dist/css/framework7.' + THEME + '.css'));
+  app.import(path.join(app.bowerDirectory, '/framework7/dist/css/framework7.' + THEME + '.colors.css'));
   app.import(path.join(app.bowerDirectory, '/framework7/dist/img/i-f7-ios.png'), { destDir: '/img' });
   app.import(path.join(app.bowerDirectory, '/framework7/dist/img/i-f7-material.png'), { destDir: '/img' });
   app.import(path.join(app.bowerDirectory, '/framework7/dist/img/i-form-calendar-ios.svg'), { destDir: '/img' });
@@ -82,6 +83,10 @@ module.exports = function(defaults) {
   app.import(path.join(app.bowerDirectory, '/framework7/dist/img/i-form-toggle-material.svg'), { destDir: '/img' });
   app.import(path.join(app.bowerDirectory, '/framework7/dist/img/i-form-url-ios.svg'), { destDir: '/img' });
   app.import(path.join(app.bowerDirectory, '/framework7/dist/img/i-form-url-material.svg'), { destDir: '/img' });
+  app.import(path.join(app.bowerDirectory, '/framework7/dist/js/framework7.min.js'));
+  app.import(path.join(app.bowerDirectory, '/framework7/dist/js/framework7.min.js.map'), {
+    destDir: 'assets'
+  });
 
   return app.toTree();
 };

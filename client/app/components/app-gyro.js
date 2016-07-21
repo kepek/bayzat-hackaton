@@ -5,6 +5,8 @@ const {
   inject
 } = Ember;
 
+let STEPS = 1;
+
 export default Ember.Component.extend({
   measurements: null,
 
@@ -20,15 +22,25 @@ export default Ember.Component.extend({
     this.get('gyro').stopTracking();
   }),
 
-  steps: computed('measurements.{x,y,z}', 'gyro.gravity', function () {
-    let steps = 0;
-    let m = this.get('measurements');
+  tiltLeftRight: computed('gyro.tiltLeftRight', function () {
+    return Math.abs(this.get('gyro.tiltLeftRight'));
+  }),
 
-    if (m) {
-      steps = Math.sqrt(m.x * m.x + m.y * m.y + m.z * m.z);
-    }
+  tiltFrontBack: computed('gyro.tiltFrontBack', function () {
+    return Math.abs(this.get('gyro.tiltFrontBack'));
+  }),
 
-    return steps;
+  touchLeftRight: computed.gte('tiltLeftRight', 45),
+  touchFrontBack: computed.gte('tiltFrontBack', 30),
+
+  steps: computed('touchLeftRight', 'touchFrontBack', function () {
+    Ember.run.debounce(this, () => {
+      if (this.get('touchLeftRight') && this.get('touchFrontBack')) {
+        STEPS = STEPS + 1;
+      }
+    }, 1500);
+
+    return STEPS;
   }),
 
   actions: {

@@ -25,7 +25,7 @@ export default Ember.Service.extend({
 
   interval: null,
   features: null,
-  frequency: 500, // ms
+  frequency: 3500, // ms
 
   direction: computed('measurements.alpha', function () {
     return Math.round(this.get('measurements.alpha'));
@@ -37,6 +37,10 @@ export default Ember.Service.extend({
 
   tiltLeftRight: computed('measurements.gamma', function () {
     return Math.round(this.get('measurements.gamma'));
+  }),
+
+  steps: computed('tiltFrontBack', 'tiltLeftRight', function () {
+
   }),
 
   init() {
