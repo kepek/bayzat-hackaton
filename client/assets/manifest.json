@@ -9,31 +9,31 @@
   "files": {
     "assetMap.json": {
       "logical_path": "assetMap.json",
-      "mtime": "2016-07-21T06:45:54.000Z",
+      "mtime": "2016-07-21T06:51:11.000Z",
       "size": 2541
     },
     "bayzat-hackaton-63a4a863a5e27394908e51f0fe26ddaa.js": {
       "digest": "63a4a863a5e27394908e51f0fe26ddaa",
       "logical_path": "bayzat-hackaton.js",
-      "mtime": "2016-07-21T06:45:54.000Z",
+      "mtime": "2016-07-21T06:51:11.000Z",
       "size": 64598
     },
     "bayzat-hackaton-95ef92811b431e07070e7673e00fc906.css": {
       "digest": "95ef92811b431e07070e7673e00fc906",
       "logical_path": "bayzat-hackaton.css",
-      "mtime": "2016-07-21T06:45:54.000Z",
+      "mtime": "2016-07-21T06:51:11.000Z",
       "size": 29
     },
     "vendor-4042a38a5533046c6fd63b4e2307290e.css": {
       "digest": "4042a38a5533046c6fd63b4e2307290e",
       "logical_path": "vendor.css",
-      "mtime": "2016-07-21T06:45:54.000Z",
+      "mtime": "2016-07-21T06:51:11.000Z",
       "size": 223063
     },
     "vendor-f328cfb80d86508866cedf9930e794ba.js": {
       "digest": "f328cfb80d86508866cedf9930e794ba",
       "logical_path": "vendor.js",
-      "mtime": "2016-07-21T06:45:54.000Z",
+      "mtime": "2016-07-21T06:51:11.000Z",
       "size": 1148907
     }
   }
